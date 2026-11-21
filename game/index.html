@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GREYLINE PROTOCOL</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0d12;
+      color: #e8eef4;
+      font-family: system-ui, -apple-system, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+    }
+    #game-container {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      max-width: 100vw;
+      max-height: 100vh;
+    }
+    canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      image-rendering: crisp-edges;
+      image-rendering: pixelated;
+    }
+    #status {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      right: 8px;
+      font-size: 12px;
+      color: #8fa3b0;
+      text-align: center;
+      pointer-events: none;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+    }
+    @media (max-width: 1280px) {
+      #game-container { width: 100vw; height: calc(100vw * 720 / 1280); }
+    }
+    @media (max-height: 720px) {
+      #game-container { height: 100vh; width: calc(100vh * 1280 / 720); }
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <!-- Logical size: 1280x720; scales to fit window while preserving aspect ratio -->
+    <canvas id="canvas" width="1280" height="720"></canvas>
+    <div id="status">WASD/Arrows move &middot; Shift sneak &middot; Space dash &middot; E interact &middot; Click throw coin &middot; P pause &middot; M mute</div>
+  </div>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
